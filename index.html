@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaScript - read JSON from URL</title>
+    <meta
+      name="description"
+      content="I really need a job, I have no money and I want to be rich~ damnit)"
+    />
+    <meta name="keywords" content="Mariw, Otaki, resume, 'for hire'" />
+    <meta name="author" content="Ivan Otaki" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  </head>
+
+  <body>
+    <div class="mypanel"></div>
+    <script>
+      $.getJSON("http://time.jsontest.com", function(data) {
+        console.log(data);
+
+        const text = `Date:${data.date}<br>
+        Time:${data.time}<br>
+        Unix time:${data.milliseconds_since_epoch}`;
+
+        $(".mypanel").html(text);
+      });
+    </script>
+  </body>
+</html>
