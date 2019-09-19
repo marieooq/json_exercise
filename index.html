@@ -7,23 +7,43 @@
       name="description"
       content="I really need a job, I have no money and I want to be rich~ damnit)"
     />
-    <meta name="keywords" content="Mariw, Otaki, resume, 'for hire'" />
-    <meta name="author" content="Ivan Otaki" />
+    <meta name="keywords" content="Marie, Otaki, resume, 'for hire'" />
+    <meta name="author" content="Marie Otaki" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   </head>
 
   <body>
     <div class="mypanel"></div>
+
+    <div class="mypannel2"></div>
     <script>
-      $.getJSON("http://time.jsontest.com", function(data) {
-        console.log(data);
+      //   $.getJSON("http://time.jsontest.com", function(data) {
+      //     console.log(data);
 
-        const text = `Date:${data.date}<br>
-        Time:${data.time}<br>
-        Unix time:${data.milliseconds_since_epoch}`;
+      //     const text = `Date:${data.date}<br>
+      //       Time:${data.time}<br>
+      //       Unix time:${data.milliseconds_since_epoch}`;
 
-        $(".mypanel").html(text);
+      //     $(".mypanel").html(text);
+      //   });
+
+      var settings = {
+        async: true,
+        crossDomain: true,
+        url: "https://nasaapidimasv1.p.rapidapi.com/getAsteroidStats",
+        method: "POST",
+        headers: {
+          "x-rapidapi-host": "NasaAPIdimasV1.p.rapidapi.com",
+          "x-rapidapi-key":
+            "3d504f7c5bmsh42b1b95bc9953cep1e26c3jsn0ff8cb39462a",
+          "content-type": "application/x-www-form-urlencoded"
+        },
+        data: {}
+      };
+
+      $.ajax(settings).done(function(response) {
+        console.log(response);
       });
     </script>
   </body>
